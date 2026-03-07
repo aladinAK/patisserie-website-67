@@ -43,13 +43,13 @@ export function Footer() {
               <span className="font-serif text-2xl font-semibold">Maison Délice</span>
             </a>
             <p className="text-background/70 max-w-sm leading-relaxed">
-              Pâtisserie artisanale au cœur de Paris. 
+              Pâtisserie artisanale au coeur de Montréal. 
               Des créations uniques, faites avec passion et les meilleurs ingrédients.
             </p>
             <div className="flex items-center gap-2 text-sm text-background/50">
               <span>Fait avec</span>
               <Heart className="w-4 h-4 text-accent fill-accent" />
-              <span>à Paris</span>
+              <span>à Montréal</span>
             </div>
           </div>
 
@@ -75,7 +75,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/50">
-          <p>© 2024 Maison Délice. Tous droits réservés.</p>
+          <p>© 2026 Maison Délice. Tous droits réservés.</p>
           <p className="text-center md:text-right">
             Site vitrine de démonstration — 
             <span className="text-accent"> Créé pour montrer nos services web</span>

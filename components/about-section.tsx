@@ -26,6 +26,12 @@ const features = [
   },
 ]
 
+const stats = [
+  { value: "15+", label: "Années d'expérience" },
+  { value: "50k", label: "Clients satisfaits" },
+  { value: "100%", label: "Fait maison" },
+]
+
 export function AboutSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
@@ -48,88 +54,93 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section id="apropos" ref={sectionRef} className="py-24 overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Images */}
-          <div className="reveal opacity-0 relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=400&h=533&fit=crop"
-                    alt="Pâtissier au travail"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="aspect-square rounded-2xl overflow-hidden bg-primary/10 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <span className="block font-serif text-5xl font-bold text-primary">15</span>
-                    <span className="text-sm text-muted-foreground uppercase tracking-wider">Années d{"'"}expérience</span>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4 pt-8">
-                <div className="aspect-square rounded-2xl overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1486427944544-d2c6e40c8c36?w=400&h=400&fit=crop"
-                    alt="Ingrédients frais"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div className="aspect-[3/4] rounded-2xl overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=400&h=533&fit=crop"
-                    alt="Préparation des pâtisseries"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-              </div>
-            </div>
-            {/* Decorative Element */}
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-accent/20 -z-10" />
+    <section id="apropos" ref={sectionRef} className="py-24 overflow-hidden relative">
+      {/* Background accent */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-secondary/30" />
+      
+      <div className="container mx-auto px-6 relative">
+        {/* Top section - Large typography with overlap */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-20">
+          <div className="reveal opacity-0">
+            <span className="inline-block text-sm font-medium text-primary uppercase tracking-widest mb-4">
+              Notre Histoire
+            </span>
+            <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-none">
+              Une Passion
+              <span className="block text-primary">Familiale</span>
+            </h2>
           </div>
+          <div className="reveal opacity-0 flex items-end" style={{ animationDelay: "0.1s" }}>
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
+              Depuis 2009, Maison Délice perpétue l{"'"}art de la pâtisserie française 
+              au coeur de Montréal. Notre philosophie est simple : des ingrédients de qualité, 
+              des techniques traditionnelles et beaucoup d{"'"}amour.
+            </p>
+          </div>
+        </div>
 
-          {/* Right - Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <span className="reveal opacity-0 inline-block text-sm font-medium text-primary uppercase tracking-widest">
-                Notre Histoire
-              </span>
-              <h2 className="reveal opacity-0 font-serif text-4xl md:text-5xl font-bold text-foreground leading-tight text-balance">
-                Une Passion Familiale depuis 2009
-              </h2>
-              <p className="reveal opacity-0 text-muted-foreground text-lg leading-relaxed" style={{ animationDelay: "0.1s" }}>
-                Maison Délice est née d{"'"}une passion commune pour les saveurs authentiques et 
-                le travail bien fait. Notre philosophie est simple : des ingrédients de qualité, 
-                des techniques traditionnelles et beaucoup d{"'"}amour.
-              </p>
-              <p className="reveal opacity-0 text-muted-foreground leading-relaxed" style={{ animationDelay: "0.2s" }}>
-                Chaque matin, notre équipe s{"'"}affaire à préparer des créations qui éveilleront 
-                vos papilles. Du croissant doré au gâteau d{"'"}anniversaire personnalisé, 
-                nous mettons notre cœur dans chaque pièce.
-              </p>
-            </div>
-
-            {/* Features Grid */}
-            <div className="grid sm:grid-cols-2 gap-6 pt-4">
-              {features.map((feature, index) => (
-                <div
-                  key={feature.title}
-                  className="reveal opacity-0 group flex gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors duration-300"
-                  style={{ animationDelay: `${0.1 * (index + 3)}s` }}
-                >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <feature.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground">{feature.description}</p>
-                  </div>
+        {/* Bento grid layout */}
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
+          {/* Large image */}
+          <div className="reveal opacity-0 md:col-span-2 lg:row-span-2 rounded-3xl overflow-hidden aspect-square lg:aspect-auto">
+            <img
+              src="https://images.unsplash.com/photo-1486427944544-d2c6e40c8c36?w=800&h=800&fit=crop"
+              alt="Préparation de croissants"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          
+          {/* Stats card */}
+          <div className="reveal opacity-0 bg-primary rounded-3xl p-8 flex flex-col justify-center" style={{ animationDelay: "0.1s" }}>
+            <div className="space-y-6">
+              {stats.map((stat, i) => (
+                <div key={i} className="text-center">
+                  <span className="block font-serif text-4xl font-bold text-primary-foreground">{stat.value}</span>
+                  <span className="text-primary-foreground/70 text-sm">{stat.label}</span>
                 </div>
               ))}
             </div>
           </div>
+          
+          {/* Small image */}
+          <div className="reveal opacity-0 rounded-3xl overflow-hidden" style={{ animationDelay: "0.2s" }}>
+            <img
+              src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=400&h=400&fit=crop"
+              alt="Intérieur de la boutique"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+
+          {/* Quote card */}
+          <div className="reveal opacity-0 md:col-span-2 bg-card rounded-3xl p-8 flex items-center shadow-lg" style={{ animationDelay: "0.3s" }}>
+            <div>
+              <blockquote className="font-serif text-2xl text-foreground italic mb-4">
+                {"\""}Chaque matin, notre équipe s{"'"}affaire à préparer des créations qui éveilleront vos papilles.{"\""}
+              </blockquote>
+              <p className="text-muted-foreground">— Marie Delacroix, Fondatrice</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Features - Horizontal scroll on mobile, grid on desktop */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="reveal opacity-0 group p-6 rounded-2xl bg-card hover:bg-primary transition-colors duration-500 shadow-sm hover:shadow-xl"
+              style={{ animationDelay: `${0.1 * (index + 4)}s` }}
+            >
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 group-hover:bg-primary-foreground/20 flex items-center justify-center mb-4 transition-colors duration-500">
+                <feature.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
+              </div>
+              <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-primary-foreground mb-2 transition-colors duration-500">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/80 transition-colors duration-500">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

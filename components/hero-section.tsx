@@ -90,7 +90,7 @@ export function HeroSection() {
               />
             </div>
             {/* Floating Badge */}
-            <div className="absolute -bottom-4 -left-4 bg-card p-4 rounded-2xl shadow-xl animate-float">
+            <div className="absolute -bottom-4 -right-4 lg:-right-8 bg-card p-4 rounded-2xl shadow-xl animate-float">
               <div className="text-center">
                 <span className="block text-3xl font-serif font-bold text-primary">100%</span>
                 <span className="text-xs text-muted-foreground uppercase tracking-wider">Fait Maison</span>
@@ -103,9 +103,8 @@ export function HeroSection() {
       {/* Scroll Indicator */}
       <a
         href="#creations"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors z-10"
       >
-        <span className="text-xs uppercase tracking-widest">Découvrir</span>
         <ArrowDown className="w-5 h-5 animate-bounce" />
       </a>
     </section>
